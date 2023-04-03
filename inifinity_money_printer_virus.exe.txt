@@ -1,4 +1,4 @@
-State	Counties	Prisons/Jails
+State	Counties	Inst
 Alabama	67	147
 Alaska	19	27
 Arizona	15	36
