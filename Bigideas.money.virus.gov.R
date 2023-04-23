@@ -1,21 +1,20 @@
-#load table
-dataMeaning=read.table('inifinity_money_printer_virus.exe.txt', header=T, sep="\t")
+#load the money
+money=read.table('inifinity_money_printer_virus.exe.txt', header=T, sep="\t")
 
-length = Counties meanings = Inst entry= State
+#plot the money
+plot(money$Counties,money$Inst,type="n",xlab="number of counties",ylab="number of prisons/jails")
+text(money$Counties,money$Inst,money$State, cex= 1)
 
-#plot with the labels
-plot(dataMeaning$Counties,dataMeaning$Inst,type="n",xlab="number of counties",ylab="number of prisons/jails")
-text(dataMeaning$Counties,dataMeaning$Inst,dataMeaning$State, cex= 1)
+#Make a regression model of the money
 
-#Now we'd like to build a regression model, i.e., find the equation for the straight line that best defines the dataset. 
-
-myModel = lm(dataMeaning$Inst~dataMeaning$Counties)
+myModel = lm(money$Inst~money$Counties)
 summary(myModel)
-#least square fitting
+#least square fitting of the money
 abline(myModel,col="red",lw="3")
 
-#quick and dirty trick to avoid label overlap (best solution: export to
-# vector format, like eps, and edit in separate software)
-newMeanings = jitter(dataMeaning$Inst, 5)
-plot(dataMeaning$Counties,newMeanings,type="n",xlab="number of counties",ylab="number of jails/prisons")
-text(dataMeaning$Counties,newMeanings,dataMeaning$State, cex= 1)
+#clean  up the money a little bit
+newMeanings = jitter(money$Inst, 5)
+plot(money$Counties,newMeanings,type="n",xlab="number of counties",ylab="number of jails/prisons")
+text(money$Counties,newMeanings,money$State, cex= 1)
+
+# BOOM! Infinity money. But, no, really it is the number of prisons and jails within each state compared to the number of counties within the state. 
