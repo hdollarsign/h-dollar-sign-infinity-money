@@ -3,7 +3,7 @@ money=read.table('inifinity_money_printer_virus.exe.txt', header=T, sep="\t")
 
 #plot the money
 plot(money$Counties,money$Inst,type="n",xlab="number of counties",ylab="number of prisons/jails")
-text(money$Counties,money$Inst,money$State, cex= 1)
+text(money$Counties,money$Inst,money$State, cex= .5)
 
 #Make a regression model of the money
 
