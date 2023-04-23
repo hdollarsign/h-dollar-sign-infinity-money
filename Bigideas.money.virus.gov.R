@@ -15,6 +15,6 @@ abline(myModel,col="red",lw="3")
 #clean  up the money a little bit
 newMeanings = jitter(money$Inst, 5)
 plot(money$Counties,newMeanings,type="n",xlab="number of counties",ylab="number of jails/prisons")
-text(money$Counties,newMeanings,money$State, cex= 1)
+text(money$Counties,newMeanings,money$State, cex= .5)
 
 # BOOM! Infinity money. But, no, really it is the number of prisons and jails within each state compared to the number of counties within the state. 
